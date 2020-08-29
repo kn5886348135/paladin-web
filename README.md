@@ -1,6 +1,6 @@
-# paladin-client
+# paladin-web
 
-> A Vue.js project
+> A Vue.js project of paladin PC web
 
 ## Build Setup
 

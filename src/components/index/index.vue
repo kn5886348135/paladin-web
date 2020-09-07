@@ -1,0 +1,56 @@
+<template>
+    <div class="container">
+        <!-- banner图片 -->
+        <div class="banner">
+            <img :src="item">
+        </div>
+        <!-- 商品显示区域 -->
+        <div class="content">
+            <div class="product-content">
+                <ul class="product-list">
+                    <li v-for="(item,index) in goodsList" :key="index">
+                        <a :href="item.to" class="product">
+                            <hr>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <Footer></Footer>
+    </div>
+</template>
+
+<script>
+import Footer from '@/components/footer/Footer'
+export default {
+  name: 'index',
+  components: {
+    Footer
+  },
+  mounted () {
+
+  },
+  data () {
+    return {}
+  },
+  methods: {
+  ...mapActions(['loadGoodList']),
+
+  },
+  computed: {
+      ...mapState(['goodList']),
+      ...mapGetters([])
+  },
+  watch: {
+      
+  },
+  destroyed() {
+      
+  },
+  store
+}
+</script>
+
+<style>
+
+</style>

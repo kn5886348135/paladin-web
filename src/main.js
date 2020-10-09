@@ -3,13 +3,19 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import store from './store'
+import i18n from '@/locale'
+import { getRequest, postRequest, putRequest, postRequest}
+import { getRequest, postRequest, putRequest, postBodyRequest, getNoAuthRequest, postNoAuthRequest } from '@/utils/request'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
+  i18n,
+  render: h => h(App),
   components: { App },
   template: '<App/>'
 })

@@ -22,8 +22,11 @@
 
 <script>
 import Footer from '@/components/footer/Footer'
+import store from '@/vuex/store'
+import { mapState, mapActions, mapGetters } from 'Vuex'
+
 export default {
-  name: 'index',
+  name: 'Index',
   components: {
     Footer
   },
@@ -31,21 +34,23 @@ export default {
 
   },
   data () {
-    return {}
+    return {
+      setIntervalObj: null
+    }
   },
   methods: {
-  ...mapActions(['loadGoodList']),
+    ...mapActions(['loadGoodList'])
 
   },
   computed: {
-      ...mapState(['goodList']),
-      ...mapGetters([])
+    ...mapState(['goodList']),
+    ...mapGetters([])
   },
   watch: {
-      
+
   },
-  destroyed() {
-      
+  destroyed () {
+    clearInterval(this.setIntervalObj)
   },
   store
 }

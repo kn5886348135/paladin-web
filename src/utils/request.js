@@ -1,8 +1,10 @@
 import axios from 'axios'
-import { store, getStore, setStore } from './vuex/store'
-import { router } from './router/index'
+import { getStore, setStore } from './storage'
+import { router } from '../router/index'
 import { Message } from 'view-design'
 import Cookies from 'js-cookie'
+
+let baseURL = 'localhost:8080'
 
 axios.defaults.timeout = 15000
 axios.defaults.baseURL = 'http://localhost:8080'
@@ -59,6 +61,97 @@ axios.interceptors.response.use(
     return Promise.resolve(error)
   })
 
+export const getRequest = (url, params) => {
+  let accessToken = getStore('accessToken');
+  return axios({
+    method: 'get',
+    url: `${baseURL}${url}`,
+    params: params,
+    headers: {
+      'accessToken': accessToken
+    }
+})
+}
 
+export const postRequest = (url, params) => {
+  let accessToken = getStore('accessToken')
+  return axios({
+    method: 'post',
+    url: `${baseURL}${url}`,
+    data: params,
+    transformRequest: [function (data) {
+      let ret = ''
+      for (let it in data) {
+        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+      }
+      ret = ret.substring(0, ret.length - 1);
+      return ret
+    }],
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'accessToken': accessToken
+    }
+})
+}
+
+export const putRequest = (url, params) => {
+  let accessToken = getStore("accessToken");
+  return axios({
+    method: 'put',
+    url: `${baseURL}${url}`,
+    data: params,
+    transformRequest: [function (data) {
+      let ret = ''
+      for (let it in data) {
+        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+      }
+      ret = ret.substring(0, ret.length - 1);
+      return ret
+    }],
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'accessToken': accessToken
+    }
+  })
+}
+
+export const postBodyRequest = (url, params) => {
+  let accessToken = getStore('accessToken')
+  return axios({
+    method: 'post',
+    url: `${baseURL}${url}`,
+    data: params,
+    headers: {
+      'accessToken': accessToken
+    }
+  })
+}
+
+export const getNoAuthRequest = (url, params) => {
+  return axios({
+    method: 'get',
+    url: `${baseURL}${url}`,
+    params: params
+  })
+}
+
+export const postNoAuthRequest = (url, params) => {
+  return axios({
+    method: 'post',
+    url: `${baseURL}${url}`,
+    data: params,
+    transformRequest: [function (data) {
+      let ret = ''
+      for (let it in data) {
+        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+      }
+      ret = ret.substring(0, ret.length - 1)
+      return ret
+    }],
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  })
+}
 
 export default axios

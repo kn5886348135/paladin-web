@@ -3,9 +3,9 @@ import Vuex from 'Vuex'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
-    state: {
-        user: {},
-        token: null,
-        title: ''
-    }
+  state: {
+    user: {},
+    token: null,
+    title: ''
+  }
 })

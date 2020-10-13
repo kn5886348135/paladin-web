@@ -1,5 +1,5 @@
 export default {
-  xboot: 'XBoot is a very good one-stop front-end and back-end rapid development platform',
+  paladin: 'paladin focus on typical scene implementation in Java technology stack',
   usernameLogin: 'Username Sign in',
   mobileLogin: 'Phone',
   autoLogin: 'Auto Login',
@@ -21,4 +21,4 @@ export default {
   privacy: 'Privacy',
   terms: 'Terms',
   rights: 'All Rights Reserved'
-};
+}

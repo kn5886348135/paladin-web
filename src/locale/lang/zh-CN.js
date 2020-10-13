@@ -1,5 +1,5 @@
 export default {
-  xboot: 'XBoot 是很不错的一站式前后端分离快速开发平台',
+  paladin: 'paladin 专注于Java技术栈典型场景应用',
   usernameLogin: '账户密码登录',
   mobileLogin: '手机短信登录',
   autoLogin: '自动登录',

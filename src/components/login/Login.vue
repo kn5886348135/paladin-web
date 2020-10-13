@@ -47,7 +47,7 @@ export default {
 
   },
   methods: {
-    async submit (name) {
+    async submitLogin (name) {
       // this.$refs[name].validate(async (valid) => {
       //   if (valid) {
       //     const res = await userlogin({

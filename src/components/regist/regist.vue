@@ -2,7 +2,7 @@
     <div class="regist">
       <Header />
       <Row>
-        <Form ref="registForm" :model="registForm" class="form">
+        <Form ref="registForm" :model="registForm" class="form" :rules="rules">
             <span class="regist-title">注册</span>
             <FormItem prop="username">
                 <Input v-model="registForm.accountName" :maxlength="16" size="large" clearable placeholder="请输入用户名"/>
@@ -42,6 +42,7 @@
 import { regist } from '@/utils/api'
 import Header from '@/components/header/header'
 import SetPassword from '@/components/common/set-password'
+import {validateUsername, validatePhone, validatePassword} from '@/utils/validate'
 
 export default {
   name: 'Regist',
@@ -58,6 +59,56 @@ export default {
         password: '',
         phone: '',
         email: ''
+      },
+      rules: {
+        username: [
+          {
+            required: true,
+            message: '请输入注册账号',
+            trigger: 'blur'
+          },
+          {
+            validator: validateUsername,
+            trigger: 'blur'
+          }
+        ],
+        nickname: [
+          {
+            required: true,
+            message: '请输入昵称',
+            trigger: 'blur'
+          }
+        ],
+        password: [
+          {
+            required: true,
+            message: '请输入密码',
+            trigger: 'blur'
+          }, {
+            validator: validatePassword,
+            trigger: 'blur'
+          }
+        ],
+        email: [
+          {
+            required: true,
+            message: '请输入邮箱地址',
+            trigger: 'blur'
+          }, {
+            type: 'email',
+            message: '邮箱格式不正确'
+          }
+        ],
+        phone: [
+          {
+            required: true,
+            message: '请输入手机号',
+            trigger: 'blur'
+          }, {
+            validator: validatePhone,
+            trigger: 'blur'
+          }
+        ]
       }
     }
   },
@@ -75,7 +126,7 @@ export default {
           }
           console.log(res)
           this.$router.push({
-            name: 'regist-result',
+            name: '/',
             query: query
           })
         }

@@ -22,7 +22,7 @@
                 </router-link>
             </Row>
                 <FormItem>
-                    <Button type="error" @click="submit('form')" clearable size="large" long>登录</Button>
+                    <Button type="error" @click="submitLogin('form')" clearable size="large" long>登录</Button>
                 </FormItem>
             </Form>
 
@@ -32,7 +32,7 @@
 
 <script>
 // import {Bus} from '@/utils/bus'
-// import {userlogin} from '@/utils/api'
+import {userlogin} from '@/utils/api'
 export default {
   name: 'Login',
   data () {
@@ -47,23 +47,18 @@ export default {
 
   },
   methods: {
-    async submitLogin (name) {
-      // this.$refs[name].validate(async (valid) => {
-      //   if (valid) {
-      //     const res = await userlogin({
-      //       userName: this.form.username,
-      //       password: this.form.passCode
-      //     })
-      //     if (res.code === '0') {
-      //       Bus.$emit('login', res.data)
-      //       localStorage.clear('accesstoken')
-      //     } else {
-
-      //     }
-      //   } else {
-
-      //   }
-      // })
+    submitLogin (name) {
+      userlogin({
+        accountName: this.form.username,
+        password: this.form.password
+      }).then(res => {
+        if (res.code === 200) {
+          console.log('jump to home')
+          this.$router.push({
+            name: '/home'
+          })
+        }
+      })
       console.log('login submit')
     },
     login () {

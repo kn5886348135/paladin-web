@@ -60,6 +60,11 @@ export default new Router({
       component: Index
     },
     {
+      path: '/home',
+      name: 'Home',
+      component: () => import('@/components/home/home')
+    },
+    {
       path: '/login',
       name: 'Login',
       component: Login

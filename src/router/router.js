@@ -3,27 +3,36 @@ export const loginRouter = {
   path: '/login',
   name: 'login',
   meta: {
-    title: '登录 - paladin前后端分离开发平台 '
+    title: '登录 - paladin '
   },
   component: () => import('@/components/login/login.vue')
 }
 
+export const homeRouter = {
+  path: '/home',
+  name: 'home',
+  meta: {
+    title: '首页'
+  },
+  component: () => import('@/components/home/home.vue')
+}
+
 export const registerRouter = {
-  path: '/register',
-  name: 'register',
+  path: '/regist',
+  name: 'regist',
   meta: {
     title: '注册'
   },
-  component: () => import('@/components/register/register.vue')
+  component: () => import('@/components/regist/regist.vue')
 }
 
 export const registResult = {
   path: '/regist-result',
   name: 'regist-result',
   meta: {
-    title: '注册结果 - X-Boot前后端分离开发平台'
+    title: '注册结果 - paladin'
   },
-  component: () => import('@/components/register/result.vue')
+  component: () => import('@/components/regist/result.vue')
 }
 
 export const otherRouter = {
@@ -32,7 +41,11 @@ export const otherRouter = {
   redirect: 'home'
 }
 
-export const routers = {
+export const appRouter = []
+
+export const routers = [
   loginRouter,
-  registResult
-}
+  registResult,
+  ...appRouter,
+  homeRouter
+]

@@ -16,7 +16,20 @@
 </template>
 <script>
 export default {
+  name: 'home',
+  data () {
+    return {
+      productname: ''
+    }
+  },
+  methods: {
+    searchProducts () {
 
+    }
+  },
+  mounted () {
+    console.log('mounted')
+  }
 }
 </script>
 <style lang="less">

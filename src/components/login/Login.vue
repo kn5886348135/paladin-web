@@ -32,7 +32,8 @@
 
 <script>
 // import {Bus} from '@/utils/bus'
-import {userlogin} from '@/utils/api'
+import { userlogin } from '@/utils/api'
+import { router } from '@/router/index'
 export default {
   name: 'Login',
   data () {
@@ -48,6 +49,7 @@ export default {
   },
   methods: {
     submitLogin (name) {
+      console.log(router)
       userlogin({
         accountName: this.form.username,
         password: this.form.password
@@ -55,7 +57,10 @@ export default {
         if (res.code === 200) {
           console.log('jump to home')
           this.$router.push({
-            name: '/home'
+            name: 'home',
+            query: {
+              accountName: this.form.username
+            }
           })
         }
       })

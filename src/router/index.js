@@ -1,18 +1,18 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
-import Index from '@/components/index/Index'
-import Login from '@/components/login/Login'
-import { routers } from '@/router/index'
+// import Index from '@/components/index/Index'
+// import Login from '@/components/login/Login'
+import { routers } from '@/router/router'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
 const routerConfig = {
   mode: 'history',
   routes: routers
 }
 
-export const router = new Router(routerConfig)
+export const router = new VueRouter(routerConfig)
 
 // router.beforeEach((to, from, next) => {
 // ViewUI.LoadingBar.start();
@@ -52,31 +52,31 @@ export const router = new Router(routerConfig)
 // window.scrollTo(0, 0);
 // })
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Index',
-      component: Index
-    },
-    {
-      path: '/home',
-      name: 'Home',
-      component: () => import('@/components/home/home')
-    },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    }, {
-      path: '/regist',
-      name: 'regist',
-      component: () => import('@/components/regist/regist')
-    }, {
-      path: 'register-result',
-      name: 'result',
-      component: () => import('@/components/regist/regist-result')
-    }
+// export default new Router({
+//   routes: [
+//     {
+//       path: '/',
+//       name: 'Index',
+//       component: Index
+//     },
+//     {
+//       path: '/home',
+//       name: 'Home',
+//       component: () => import('@/components/home/home')
+//     },
+//     {
+//       path: '/login',
+//       name: 'Login',
+//       component: Login
+//     }, {
+//       path: '/regist',
+//       name: 'regist',
+//       component: () => import('@/components/regist/regist')
+//     }, {
+//       path: 'register-result',
+//       name: 'result',
+//       component: () => import('@/components/regist/regist-result')
+//     }
 
-  ]
-})
+//   ]
+// })

@@ -6,7 +6,7 @@
 <script>
 
 export default {
-  name: 'regist-result',
+  name: 'result',
   component: {
 
   },

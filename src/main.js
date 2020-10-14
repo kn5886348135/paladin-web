@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import ViewUI from 'view-design'
 import App from './App'
-import router from './router'
+import { router } from './router/index'
 import store from '@/store/store'
 import { setStore, getStore, removeStore } from '@/utils/storage'
 import i18n from '@/locale'
@@ -44,7 +44,8 @@ new Vue({
   },
   mounted () {
 
-  },
-  components: { App },
-  template: '<App/>'
+  }
+  // ,
+  // components: { App },
+  // template: '<App/>'
 })

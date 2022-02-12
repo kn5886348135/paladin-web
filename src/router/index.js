@@ -1,10 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/index/index";
-import Login from "../views/login/index";
+import Login from "../views/account/login/index";
 import Register from "../views/register/index";
 import Member from "../views/member/index";
 import Orders from "../views/orders/index";
+import Test from "../views/test/index";
 import ShoppingCart from "../views/shoppingCart/index";
 
 Vue.use(VueRouter);
@@ -39,6 +40,11 @@ const routes = [
     path: "/shoppingCart",
     name: "ShoppingCart",
     component: ShoppingCart,
+  },
+  {
+    path: "/test",
+    name: "Test",
+    component: Test,
   },
 ];
 

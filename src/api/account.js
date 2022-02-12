@@ -19,9 +19,10 @@ export function Register(params) {
 }
 
 export function Login(params) {
+  console.log(params);
   return service.request({
     method: "post",
-    url: `${process.env.VUE_APP_API_WEB}/account/login`,
+    url: `${process.env.VUE_APP_API}/account/login`,
     data: params,
   });
 }
@@ -29,7 +30,7 @@ export function Login(params) {
 export function Logout(params) {
   return service.request({
     method: "post",
-    url: `${process.env.VUE_APP_API_WEB}/account/logout`,
+    url: `${process.env.VUE_APP_API}/account/logout`,
     params,
   });
 }

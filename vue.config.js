@@ -62,10 +62,18 @@ module.exports = {
     hotOnly: false,
     proxy: {
       [process.env.VUE_APP_API]: {
-        target: "http://localhost:8090", //API服务器的地址
+        target: "http://192.168.31.172:8090", //API服务器的地址
         changeOrigin: true,
         pathRewrite: {
           [`^${process.env.VUE_APP_API}`]: "",
+        },
+      },
+
+      "/": {
+        target: "http://192.168.31.172:8090", //API服务器的地址
+        changeOrigin: true,
+        pathRewrite: {
+          "^/": "",
         },
       },
 

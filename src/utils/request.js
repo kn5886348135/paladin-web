@@ -9,7 +9,6 @@ const service = axios.create({
 
 service.interceptors.request.use(
   function (config) {
-    console.log(config);
     config.headers["Token"] = Cookies.get("admin");
     config.headers["Username"] = Cookies.get("username");
     return config;
@@ -25,10 +24,11 @@ service.interceptors.response.use(
       Message.error(res.data.message);
       return Promise.reject(res);
     } else {
-      return res.data;
+      return res;
     }
   },
   function (error) {
+    alert(error.message);
     return Promise.reject(error);
   }
 );

@@ -17,6 +17,7 @@
 
 <script>
 import { GetCode } from "@/api/account";
+
 export default {
   name: "Code",
   components: {},
